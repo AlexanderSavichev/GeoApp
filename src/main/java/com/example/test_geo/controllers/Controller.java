@@ -14,7 +14,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URISyntaxException;
 import java.util.List;
 
-@SpringBootApplication
 @RestController
 @Component
 public class Controller {
@@ -23,7 +22,7 @@ public class Controller {
     @GetMapping("/param")
     public List<result> getLocation (@RequestParam(value = "location") String location) throws URISyntaxException {
         UriComponents uriComponents = UriComponentsBuilder.newInstance()
-                .scheme("https").host("www.api.geoapify.com").path("/v1/geocode/search?text=").pathSegment(location, "&format=json&apiKey=YOUR_API_KEY").build();
+                .scheme("https").host("api.geoapify.com").path("/v1/geocode/search?text=").pathSegment(location, "&format=json&apiKey=a901afdd553443ea86f238b6c6326598").build();
         return newMethod.getLocation(uriComponents.toUriString());
     }
 }
