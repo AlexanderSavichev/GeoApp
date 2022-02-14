@@ -1,4 +1,5 @@
 package com.example.test_geo.controllers;
+import com.example.test_geo.service.LonLocLocator;
 import com.example.test_geo.service.method;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,9 @@ public class Controller {
         String newUri = uriComponents.toUriString();
         String newUri1 = newUri.replace("%3F","?");
         System.out.println(newUri1);
-        return newMethod.getLocation(newUri1);
+        String resultString = newMethod.getLocation(newUri1);
+        LonLocLocator newLocator = new LonLocLocator();
+        return "\"lon\""+ newLocator.LonLocString(resultString, "\"lon\"", "\"formatted\"" );
+
     }
 }
