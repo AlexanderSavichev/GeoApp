@@ -1,4 +1,5 @@
 package com.example.test_geo.controllers;
+
 import com.example.test_geo.service.LonLocLocator;
 import com.example.test_geo.service.Method;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
+
 import java.net.URISyntaxException;
 
 @RestController
@@ -30,4 +32,6 @@ public class Controller {
         return "\"lon\""+ NewLocator.LonLocString(ResultString, "\"lon\"", "\"formatted\"" );
 
     }
+
+
 }
