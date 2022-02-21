@@ -8,8 +8,6 @@
     <div class="container">
         <div class="row">
                 <h2>Upload file with geo data</h2>
-                <!--/*@thymesVar id="message" type=""*/-->
-                <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
                 <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
                     <div class="form-group">
                         <input type="file" name="file" class="form-control-file">

@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>Getting Started: Geocode</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 <p>Upload file here <a href="/geocodeFile">here</a></p>
 <p>Input address manually here <a href="/geocodeAddress">here</a></p>
+<!--/*@thymesVar id="message" type=""*/-->
+<p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
 </body>
 </html>
