@@ -1,8 +1,6 @@
 package com.example.test_geo.service;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.io.*;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
@@ -15,19 +13,21 @@ public class Reader {
         StringBuilder content = new StringBuilder();
         String line;
         while ((line = reader.readLine()) != null){
-           System.out.println(line);
             content.append(line);
             content.append(System.lineSeparator());
             String FileResponse = FileMethod.GetLocation(content.toString());
             LonLocLocator FileLocator = new LonLocLocator();
+            try{
             String LonLocResponse = "\"lon\"" + FileLocator.LonLocString(FileResponse, "\"lon\"", "\"formatted\"");
-            System.out.println(LonLocResponse);
             FileWriter fw = new FileWriter(String.valueOf(FilePath), true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.newLine();
             bw.write(LonLocResponse);
             bw.newLine();
-            bw.close();
+            bw.close();}
+            catch(StringIndexOutOfBoundsException e){
+                return null;
+            }
         }
 
         return null;
