@@ -2,6 +2,7 @@ package com.example.test_geo.service;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletInputStream;
@@ -57,7 +58,7 @@ public class Reader extends HttpServlet {
         }
         return null;
     }
-
+    @GetMapping("/geocodeFile")
     public @ResponseBody
     void getReviewedFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ServletInputStream sis = request.getInputStream();
